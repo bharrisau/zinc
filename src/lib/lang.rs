@@ -23,5 +23,5 @@ extern fn eh_personality() { /* ... */ }
 
 #[lang = "begin_unwind"]
 extern fn begin_unwind() { 
-  abort();
+  unsafe { abort(); }
 }
