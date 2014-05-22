@@ -22,6 +22,7 @@
 #![no_std]
 
 extern crate core;
+extern crate zinc;
 
 #[path="cortex_m3/isr.rs"] pub mod isr_cortex_m3;
 
