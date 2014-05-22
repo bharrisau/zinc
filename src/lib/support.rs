@@ -75,6 +75,17 @@ pub fn abort() -> ! {
   loop {}
 }
 
+#[lang = "stack_exhausted"]
+extern fn stack_exhausted() { /* ... */ }
+
+#[lang = "eh_personality"]
+extern fn eh_personality() { /* ... */ }
+
+#[lang = "begin_unwind"]
+extern fn begin_unwind() { 
+  abort();
+}
+
 #[no_split_stack]
 #[no_mangle]
 pub fn __aeabi_unwind_cpp_pr0() {

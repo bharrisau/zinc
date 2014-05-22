@@ -17,3 +17,7 @@ script:
     - rake build_all
 env:
     - PLATFORM=lpc17xx
+    - PLATFORM=stm32f4
+matrix:
+  allow_failures:
+    - env: PLATFORM=stm32f4
