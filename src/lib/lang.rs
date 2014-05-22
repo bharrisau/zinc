@@ -1,5 +1,5 @@
 // Zinc, the bare metal stack for rust.
-// Copyright 2014 Vladimir "farcaller" Pouzanov <farcaller@gmail.com>
+// Copyright 2014 Ben Harris <mail@bharr.is>
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -13,10 +13,13 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-//! Helper methods.
+#[lang = "stack_exhausted"]
+extern fn stack_exhausted() { /* ... */ }
 
-pub mod strconv;
-pub mod volatile_cell;
-pub mod shared;
-pub mod queue;
-pub mod lang;
+#[lang = "eh_personality"]
+extern fn eh_personality() { /* ... */ }
+
+#[lang = "begin_unwind"]
+extern fn begin_unwind() { 
+  abort();
+}
