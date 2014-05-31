@@ -54,12 +54,6 @@ pub mod hal;
 pub mod lib;
 pub mod os;
 
-// TODO(farcaller): clean up when fixed.
-#[cfg(not(test))]
-mod std {
-  pub use core::cmp;  // used for #[deriving(Eq)] until fixed in rust.
-}
-
 #[test]
 fn dummy_test() {
 }
